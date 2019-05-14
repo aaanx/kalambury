@@ -1,0 +1,25 @@
+.register_form {
+    font-size: 2.5rem;
+    text-transform: lowercase;
+}
+.register_form > * {
+    margin-left: 1.5rem;
+}
+.register_form input {
+    width: 40rem;
+}
+.info_form {
+    display: inline-block;
+    font-size: 1rem;
+}
+.reg_btn {
+    font-size: 1.5rem;
+    padding: .5rem 2rem;
+    margin-top: 2rem;
+    background: #000080;
+    color: #fff;
+    outline: none;
+    border: none;
+    font-weight: 500;
+    cursor: pointer;
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Kalambury Gra</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='register.css'>
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>Kalambury</h1>
+        </nav>
+        <div class="nav_bar">
+            <span>rejestracja</span>
+        </div>
+    </header>
+    <main>
+        <form class="register_form">
+            <label for="reg_login">Login</label> <br>
+            <input type="text" name="reg_login"> <br>
+            <span class="info_form">Tylko litery (bez ogonków) i cyfry</span> <br>
+            <label for="reg_haslo">Hasło <span class="info_form">6+</span></label> <br>
+            <input type="password" name="reg_haslo"> <br>
+            <label for="reg_haslo2">Powtórz hasło</label> <br>
+            <input type="password" name="reg_haslo2"> <br>
+            <label for="reg_email">Email</label> <br>
+            <input type="email" name="reg_email"> <br>
+            <span class="info_form">email nieobowiązkowy, tylko do odzyskiwania hasła</span> <br>
+            <button class="reg_btn" type="submit">ok</button>
+        </form>
+    </main>
+
+
+<script src='script.js'></script>    
+</body>
+</html>

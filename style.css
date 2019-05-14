@@ -28,13 +28,13 @@ nav h1 {
     font-size: 3.5rem;
     margin: 1rem;
 }
-span {
+.nav_bar span {
     margin: 1rem;
     padding: 1rem 0;
     display: flex;
 }
 /*///////// MAIN SECTION */
-main {
+.main_page {
     background-color: #f6f6ff;
     width: 70%;
     margin: 1rem;
