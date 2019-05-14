@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Quicksand:400,500&subset=latin-ext');
 
-
+/*///////// INITIAL SETUP */
 * {
     margin: 0;
     padding: 0;
@@ -13,6 +13,7 @@ body {
     width: 65vw;
     height: 75vh;
 }
+/*///////// HEADER SECTION */
 nav {
     margin: 1rem;
 }
@@ -32,6 +33,7 @@ span {
     padding: 1rem 0;
     display: flex;
 }
+/*///////// MAIN SECTION */
 main {
     background-color: #f6f6ff;
     width: 70%;
@@ -44,6 +46,7 @@ main {
 .main_content h2 {
     padding: 2rem 0;
 }
+/*///////// zaloguj i zarejestruj button */
 .zaloguj_btn,
 .zarejestruj_btn {
     font-size: 1.8rem;
@@ -62,6 +65,39 @@ main {
 .zarejestruj_btn {
     background-color: transparent;
 }
+
+/*///////// formularz logowania */
+.zaloguj_form {
+    display: block;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    /*display: none;*/
+}
+
+input::placeholder {
+    font-size: 1rem;
+    padding-left: .5rem;
+    letter-spacing: .1rem;
+}
+
+.zaloguj_form label {
+    margin-right: 1rem;
+}
+
+.log_btn {
+    margin-top: 2rem;
+    font-size: 1.2rem;
+    padding: .3rem 1rem;
+    font-weight: 500;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background-color: transparent;
+    color: #000080;
+    border: 1px solid #000080;
+}
+
+/*///////// opis i zasady gry button */
 .main_content p {
     font-size: 1.5rem;
     text-align: justify;
