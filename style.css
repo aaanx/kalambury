@@ -47,8 +47,8 @@ nav h1 {
     padding: 2rem 0;
 }
 /*///////// zaloguj i zarejestruj button */
-.zaloguj_btn,
-.zarejestruj_btn {
+#zaloguj_btn,
+#zarejestruj_btn {
     font-size: 1.8rem;
     padding: 1rem 3rem;
     margin-right: 1.5rem;
@@ -58,20 +58,37 @@ nav h1 {
     font-weight: 500;
     cursor: pointer;
 }
-.zaloguj_btn {
+#zaloguj_btn {
     background-color: #000080;
     color: #fff;
 }
-.zarejestruj_btn {
+#zarejestruj_btn {
     background-color: transparent;
 }
 
 /*///////// formularz logowania */
 .zaloguj_form {
-    display: block;
     margin-bottom: 2rem;
     font-size: 2.5rem;
-    /*display: none;*/
+}
+
+input[type="email"],
+input[type="password"] {
+    width: 25rem;
+    height: 2.5rem;
+    font-size: 1.5rem;
+    padding-left: .5rem;
+    outline: none;
+    border: none;
+}
+
+input[type="password"] {
+    margin-top: 1.5rem;
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus {
+	box-shadow: 0 0 7px 0 rgba(0, 0, 128, .63);
 }
 
 input::placeholder {
@@ -84,7 +101,7 @@ input::placeholder {
     margin-right: 1rem;
 }
 
-.log_btn {
+#log_btn {
     margin-top: 2rem;
     font-size: 1.2rem;
     padding: .3rem 1rem;
@@ -103,7 +120,7 @@ input::placeholder {
     text-align: justify;
     line-height: 2.5rem;
 }
-.zasady_btn {
+#zasady_btn {
     margin: 2rem 0;
     font-size: 1.2rem;
     padding: .7rem 0;

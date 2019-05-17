@@ -1,3 +1,19 @@
+.nav_bar {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+#return_btn {
+    position: absolute;
+    right: 3rem;
+    bottom: 1rem;
+    font-size: 1.5rem;
+    background-color: #fff;
+    color: #000080;
+    border: none;
+    padding: 1rem;
+    cursor: pointer;
+}
 .register_form {
     font-size: 2.5rem;
     text-transform: lowercase;
@@ -12,7 +28,7 @@
     display: inline-block;
     font-size: 1rem;
 }
-.reg_btn {
+#register_btn {
     font-size: 1.5rem;
     padding: .5rem 2rem;
     margin-top: 2rem;
