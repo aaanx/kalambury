@@ -45,6 +45,24 @@
         </div>
     </main>
 
-<script src='script.js'></script>    
+
+<!-- firebase config start -->
+<script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-auth.js"></script>
+<script>
+  var firebaseConfig = {
+    apiKey: "AIzaSyB0LZC6f-zpMFY1HwKSFWRz98UeDjrmIjw",
+    authDomain: "kalambury-605db.firebaseapp.com",
+    databaseURL: "https://kalambury-605db.firebaseio.com",
+    projectId: "kalambury-605db",
+    storageBucket: "kalambury-605db.appspot.com",
+    messagingSenderId: "18958711942",
+    appId: "1:18958711942:web:badd0b17c06db2ba"
+  };
+  firebase.initializeApp(firebaseConfig);
+</script>
+<!-- firebase config end -->
+
+<script src='game.js'></script>    
 </body>
 </html>

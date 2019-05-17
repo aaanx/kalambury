@@ -19,18 +19,35 @@
     <main class="main_page">
         <div class="main_content">
             <h2>Kalambury gra multiplayer</h2>
-            <a href="#"><button class="zaloguj_btn">Zaloguj</button></a>
-            <a href="register.html"><button class="zarejestruj_btn">Zarejestruj się</button></a>
-            <div class="zaloguj_form">
-                <label for="login">Login</label><input type="text" name="login" placeholder="Twój login" required> <br>
-                <label for="haslo">Hasło</label><input type="password" name="haslo" placeholder="Twoje hasło" required> <br>
-                <button class="log_btn" type="submit">Zaloguj</button>
+            <a href="#"><button id="zaloguj_btn">Zaloguj</button></a>
+            <a href="register.html"><button id="zarejestruj_btn">Zarejestruj się</button></a>
+            <div class="zaloguj_form" style="display: none;">
+                <label for="email">Email</label><input id="email" type="email" name="email" placeholder="Twój email" required> <br>
+                <label for="haslo">Hasło</label><input id="password" type="password" name="haslo" placeholder="Twoje hasło" required> <br>
+                <button disabled id="log_btn" type="submit">Zaloguj</button>
+                <p class="log_info">Log info</p>
             </div>
             <p>gra typu jeden rysuje, reszta zgaduje; im szybciej odgadnięte hasło, tym więcej punktów za odgadnięcie i rysowanie; gra do ustalonej liczby punktów</p>
-            <a href="#"><button class="zasady_btn">zasady gry</button></a>
+            <a href="#"><button id="zasady_btn">zasady gry</button></a>
         </div>
     </main>
 
+<!-- firebase config start -->
+<script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-auth.js"></script>
+<script>
+  var firebaseConfig = {
+    apiKey: "AIzaSyB0LZC6f-zpMFY1HwKSFWRz98UeDjrmIjw",
+    authDomain: "kalambury-605db.firebaseapp.com",
+    databaseURL: "https://kalambury-605db.firebaseio.com",
+    projectId: "kalambury-605db",
+    storageBucket: "kalambury-605db.appspot.com",
+    messagingSenderId: "18958711942",
+    appId: "1:18958711942:web:badd0b17c06db2ba"
+  };
+  firebase.initializeApp(firebaseConfig);
+</script>
+<!-- firebase config end -->
 
 <script src='script.js'></script>    
 </body>
