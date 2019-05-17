@@ -1,11 +1,11 @@
-// Kliknięcie zaloguj -> pokazanie formularza logowania
+// klik zaloguj -> pokazanie formularza logowania
 var zalogujBtn = document.getElementById('zaloguj_btn');
 zalogujBtn.addEventListener('click', function() {
     var logForm = document.querySelector('.zaloguj_form');
     logForm.style.display === 'none' ? logForm.style.display = 'block' : logForm.style.display = 'none';
 });
 
-// Kliknięcie button zaloguj się
+// klik button zaloguj się -> weryfikacja danych -> jeśli dane ok -> logowanie
 
 function toggleSignIn() {
     if (firebase.auth().currentUser) {
@@ -15,24 +15,40 @@ function toggleSignIn() {
       var password = document.getElementById('password').value;
 
       if (email.length < 4) {
-        alert('Please enter an email address');
+        document.querySelector('.log_info').textContent = 'Please enter an email address';
         return;
       }
       if (password.length < 4) {
-        alert('Please enter a password');
+        document.querySelector('.log_info').textContent = 'Please enter a password at least 4 signs long';
         return;
       }        
 
       firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
         var errorCode = error.code;
         var errorMessage = error.message;
+        // Jak zrobić by przechodziło przez każdy error?
+        // Error -> poprawka -> inny error -> poprawka -> inny error -> poprawka -> ok, loguje
+
+        if (errorCode === 'auth/invalid-email') {
+            document.querySelector('.log_info').textContent = 'Wrong email format';
+            document.querySelector('.log_info').style.color = 'red';
+            console.log(errorMessage)
+            return;
+        } 
+
+        if (errorCode === 'auth/user-not-found') {
+            document.querySelector('.log_info').textContent = 'User not found';
+            document.querySelector('.log_info').style.color = 'red';
+            console.log(errorMessage)
+            return;
+        } 
 
         if (errorCode === 'auth/wrong-password') {
-          alert('Wrong password.');
-        } else {
-          alert(errorMessage);
-        }
-        console.log(error);
+            document.querySelector('.log_info').textContent = 'Wrong password';
+            document.querySelector('.log_info').style.color = 'red';
+            console.log(errorMessage)
+            return;
+        } 
 
         document.getElementById('log_btn').disabled = false;
         document.getElementById('log_btn').addEventListener('click', enterTheGame, false);
@@ -42,11 +58,8 @@ function toggleSignIn() {
 }
 
 function initApp() {
-    // Listening for auth state changes.
-    // [START authstatelistener]
     firebase.auth().onAuthStateChanged(function(user) {
       if (user) {
-        // User is signed in.
         var displayName = user.displayName;
         var email = user.email;
         var emailVerified = user.emailVerified;
@@ -59,15 +72,12 @@ function initApp() {
       }
       document.getElementById('log_btn').disabled = false;
     });
-    // [END authstatelistener]
     document.getElementById('log_btn').addEventListener('click', toggleSignIn, false);
 }
 
 window.onload = function() {
     initApp();
 };
-
-//
 
 function enterTheGame() {
     location.replace("game.html");
