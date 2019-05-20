@@ -17,6 +17,9 @@
 .register_form {
     font-size: 2.5rem;
     text-transform: lowercase;
+    background-color: #f6f6ff;
+    margin: 1rem;
+    padding-bottom: 3rem;
 }
 .register_form > * {
     margin-left: 1.5rem;
@@ -38,4 +41,10 @@
     border: none;
     font-weight: 500;
     cursor: pointer;
+}
+
+.register_info {
+    display: inline-block;
+    margin-left: 2rem;
+    text-transform: none;
 }

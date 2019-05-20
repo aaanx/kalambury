@@ -6,15 +6,15 @@ function handleSignUp() {
     var password = document.getElementById('register_haslo').value;
 
     if (email.length < 6) {
-        alert('Please enter an email address with at least 6 letters');
+        document.querySelector('.register_info').textContent = 'Please enter an email address at least 6 characters long';
         return;
     }
-    if (password.length < 4) {
-        alert('Please enter a password');
+    if (password.length < 6) {
+        document.querySelector('.register_info').textContent = 'Please enter a password at least 6 characters long';
         return;
     }
     if (passwordRepeat !== password) {
-        alert('Repeat the same password');
+        document.querySelector('.register_info').textContent = 'Repeat the same password';
         return;
     }
 
@@ -22,12 +22,23 @@ function handleSignUp() {
         var errorCode = error.code;
         var errorMessage = error.message;
         if (errorCode == 'auth/weak-password') {
-            alert('The password is too weak.');
-        } else {
-            alert(errorMessage);
+            document.querySelector('.register_info').textContent = 'The password is too weak';
+            return;
+        } 
+        if (errorCode == 'auth/email-already-in-use') {
+            document.querySelector('.register_info').textContent = 'Email is already in use';
+            return;
+        } 
+        if (errorCode == 'auth/invalid-email') {
+            document.querySelector('.register_info').textContent = 'Invalid email';
+            return;
         }
-        console.log(error);
+
+        console.log(errorMessage); 
+        //console.log(error); 
     });
+
+    document.querySelector('.register_info').textContent = 'Succesful registration!';
 }
 
 function initApp() {

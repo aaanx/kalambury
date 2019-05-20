@@ -114,6 +114,11 @@ input::placeholder {
     border: 1px solid #000080;
 }
 
+.log_info {
+    display: inline-block;
+    margin-left: 1rem;
+}
+
 /*///////// opis i zasady gry button */
 .main_content p {
     font-size: 1.5rem;

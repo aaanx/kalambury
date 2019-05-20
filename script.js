@@ -19,7 +19,7 @@ function toggleSignIn() {
         return;
       }
       if (password.length < 4) {
-        document.querySelector('.log_info').textContent = 'Please enter a password at least 4 signs long';
+        document.querySelector('.log_info').textContent = 'Please enter a password at least 4 characters long';
         return;
       }        
 
@@ -50,10 +50,9 @@ function toggleSignIn() {
             return;
         } 
 
-        document.getElementById('log_btn').disabled = false;
-        document.getElementById('log_btn').addEventListener('click', enterTheGame, false);
       });
-    document.getElementById('log_btn').disabled = true;
+      document.getElementById('log_btn').disabled = false;
+      document.getElementById('log_btn').addEventListener('click', enterTheGame, false);
     }
 }
 
