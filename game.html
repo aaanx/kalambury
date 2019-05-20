@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="pl">
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
@@ -9,13 +9,14 @@
 </head>
 <body>
     <main class="game_box">
-        <div class="play_box"></div>
+        <canvas id="play_box" width="700" height="580"></canvas>
 
         <div class="nav_box">
 
             <div class="nav_top">
                 <h4>stół ### 2m, 500</h4>
-                <input type="checkbox" name="draw"><label for="draw">chcę rysować</label>                 
+                <input type="checkbox" name="draw"><label for="draw">chcę rysować</label>     
+                <button id="clear_btn">wyczyść rysunek</button>            
             </div>
 
             <div class="chat_box">
