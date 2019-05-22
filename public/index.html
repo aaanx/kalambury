@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalambury Gra</title>
+    <link rel="stylesheet" type="text/css" href="sketch.css">
+    <script src="libraries/p5.min.js"></script>
+    <script src="sketch.js"></script>
+  </head>
+  <body>
+      <main class="game_box">
+          <div id="play_box"></div>
+  
+          <div class="nav_box">
+  
+              <div class="nav_top">
+                  <h4>stół ### 2m, 500</h4>
+                  <input type="checkbox" name="draw"><label for="draw">chcę rysować</label>     
+                  <button id="clear_btn">wyczyść rysunek</button>            
+              </div>
+  
+              <div class="chat_box">
+                  <div class="chat_view">
+                      <p> + przychodzi wpp4934g <br>
+                          + zostajesz operatorem stołu - możesz zmieniać ustawienia i wypraszać <br>
+                          + żeby grać, muszą być co najmniej dwie osoby <br>
+                          + przychodzi wng7846g <br>
+                          + odchodzi wng7846g <br> </p>
+                  </div>
+                  <div class="chat_msg">
+                      <input type="text">
+                  </div>
+              </div>
+  
+              <div class="players_settings_box">
+  
+                  <div class="players_settings_nav">
+                      <span class="obecni">obecni</span>
+                      <span class="ustawienia">ustawienia</span>
+                  </div>
+                  <div class="players">Lista graczy</div>
+                  <div class="settings">Ustawienia</div>
+  
+              </div>
+  
+          </div>
+      </main>
+  
+  <!-- firebase config start -->
+  <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-auth.js"></script>
+  <script>
+    var firebaseConfig = {
+      apiKey: "AIzaSyB0LZC6f-zpMFY1HwKSFWRz98UeDjrmIjw",
+      authDomain: "kalambury-605db.firebaseapp.com",
+      databaseURL: "https://kalambury-605db.firebaseio.com",
+      projectId: "kalambury-605db",
+      storageBucket: "kalambury-605db.appspot.com",
+      messagingSenderId: "18958711942",
+      appId: "1:18958711942:web:badd0b17c06db2ba"
+    };
+    firebase.initializeApp(firebaseConfig);
+  </script>
+  <!-- firebase config end -->
+
+  <!-- socket.io config start -->
+  <script src="/socket.io/socket.io.js"></script>
+  <!-- socket.io config end -->
+
+  </body>
+</html>

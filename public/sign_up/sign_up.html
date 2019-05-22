@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Kalambury Gra</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='../sign_in/sign_in.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='sign_up.css'>
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>Kalambury</h1>
+        </nav>
+        <div class="nav_bar">
+            <span>rejestracja</span>
+            <a href="../sign_in/sign_in.html"><button id="return_btn">powrót do logowania</button></a>
+        </div>
+    </header>
+    <main>
+        <div class="register_form">
+            <!--
+            <label for="reg_login">Login</label> <br>
+            <input type="text" name="reg_login" required> <br>
+            <span class="info_form">Tylko litery (bez ogonków) i cyfry</span> <br>
+            -->
+            <label for="register_email">Email</label> <br>
+            <input id="register_email" type="email" name="register_email" required> <br>
+            <label for="register_haslo">Hasło <span class="info_form">6+</span></label> <br>
+            <input id="register_haslo" type="password" name="register_haslo" required> <br>
+            <label for="register_haslo2">Powtórz hasło</label> <br>
+            <input id="register_haslo2" type="password" name="register_haslo2" required> <br>
+            <!--
+            <span class="info_form">email nieobowiązkowy, tylko do odzyskiwania hasła</span> <br>
+            -->
+            <button id="register_btn" type="submit">zarejestruj się</button>
+            <p class="register_info"></p>
+        </div>
+    </main>
+
+<!-- firebase config start -->
+<script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-auth.js"></script>
+<script>
+  var firebaseConfig = {
+    apiKey: "AIzaSyB0LZC6f-zpMFY1HwKSFWRz98UeDjrmIjw",
+    authDomain: "kalambury-605db.firebaseapp.com",
+    databaseURL: "https://kalambury-605db.firebaseio.com",
+    projectId: "kalambury-605db",
+    storageBucket: "kalambury-605db.appspot.com",
+    messagingSenderId: "18958711942",
+    appId: "1:18958711942:web:badd0b17c06db2ba"
+  };
+  firebase.initializeApp(firebaseConfig);
+</script>
+<!-- firebase config end -->
+
+<script src='sign_up.js'></script>    
+</body>
+</html>
