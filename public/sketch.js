@@ -1,5 +1,20 @@
 var socket;
 
+document.addEventListener('DOMContentLoaded', function() {
+  function chatSetup() {
+    var socket = io.connect('http://localhost:3000');
+    var messageForm = document.getElementById('messageForm');
+    var message = document.getElementById('message');
+    var chat = document.getElementById('chat');
+    var submitBtn = document.getElementById('submit_btn');
+  
+    submitBtn.addEventListener('submit', function(e) {
+      //e.preventDefault();
+      console.log('Submitted');
+    });
+  }
+});
+
 function setup() {
   var canvas = createCanvas(500, 500);
   canvas.parent('play_box');
@@ -7,7 +22,6 @@ function setup() {
 
   socket = io.connect('http://localhost:3000');
   socket.on('mouse', newDrawing);
-
 }
 
 function newDrawing(data) {
@@ -24,7 +38,7 @@ function mouseDragged() {
   var data = {
     x: mouseX,
     y: mouseY
-  };
+  }
 
   socket.emit('mouse', data);
   

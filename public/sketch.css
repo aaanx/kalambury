@@ -31,7 +31,43 @@ body {
     background-color: lightskyblue;
 }
 
-/*///////// top navigation */
+.row {
+    margin-top: 3rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*///////// top navigation 
 .nav_top {
     width: 100%;
     height: 20%;
@@ -74,8 +110,9 @@ input[type="checkbox"] {
     background-color: #fff;
     cursor: pointer;
 }
+*/
 
-/*///////// chat box */
+/*///////// chat box 
 .chat_box {
     border: 1px solid #000;
     width: 100%;
@@ -102,8 +139,10 @@ input[type="checkbox"] {
     height: 3rem;
     font-size: 1.5rem;
 }
+*/
 
-/*///////// players & settings box */
+
+/*///////// players & settings box 
 .players_settings_box {
     border: 1px solid #000;
     background-color: #fff;
@@ -132,4 +171,4 @@ input[type="checkbox"] {
 .settings {
     display: none;
 }
-
+*/
