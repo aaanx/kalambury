@@ -23,16 +23,47 @@ body {
 
 /*///////// PLAY BOX */
 #play_box {
+    border: 1px solid black;
     cursor: pointer;
+    flex: 2;
 }
 
 /*///////// NAVIGATION BOX */
 .nav_box {
     background-color: lightskyblue;
+    flex: 1;
 }
 
 .row {
     margin-top: 3rem;
+}
+
+.well {
+    font-size: 1.2rem;
+    background-color: #fff;
+    padding: .1rem;
+}
+
+.online-users {
+    display: block;
+}
+
+.enter-msg {
+    font-size: 1.5rem;
+    margin-top: .5rem;
+}
+
+.form-control {
+    font-size: 1.3rem;
+    width: 18rem;
+}
+
+#submit_btn {
+    font-size: 1.5rem;
+}
+
+.messageArea {
+    display: none;
 }
 
 

@@ -15,26 +15,14 @@
   <body>
     <main class="game_box">
         <div id="play_box"></div>
+
         <div class="nav_box container">
-            <!--
-            <div class="nav_top">
-                <h4>stół ### 2m, 500</h4>
-                <input type="checkbox" name="draw"><label for="draw">chcę rysować</label>     
-                <button id="clear_btn">wyczyść rysunek</button>            
-            </div>
-            -->
             <div class="row">
-                <div class="col-md-4">
-                    <div class="well">
-                        <h3>Online users</h3>
-                        <ul class="list-group" id="users"></ul>                        
-                    </div>
-                </div>
                 <div class="col-md-8">
                     <div class="chat" id="chat"></div>                    
                     <form id="messageForm">
                         <div class="form-group">
-                            <label>Enter Message</label>
+                            <label class="enter-msg">Enter Message</label>
                             <textarea class="form-control" id="message"></textarea>
                             <br />
                             <input type="submit" class="btn btn-primary" id="submit_btn" value="Send Message" />
@@ -42,19 +30,18 @@
                     </form>                
                 </div>
             </div>
-
-            </div>
-            <!--
-            <div class="players_settings_box">
-                <div class="players_settings_nav">
-                    <span class="obecni">obecni</span>
-                    <span class="ustawienia">ustawienia</span>
-                </div>
-                <div class="players">Lista graczy</div>
-                <div class="settings">Ustawienia</div>
-            </div>
-            -->
         </div>
+
+        <!--
+        <div class="players_settings_box">
+            <div class="players_settings_nav">
+                <span class="obecni">obecni</span>
+                <span class="ustawienia">ustawienia</span>
+            </div>
+            <div class="players">Lista graczy</div>
+            <div class="settings">Ustawienia</div>
+        </div>
+        -->
     </main>
   
     <!-- firebase config start -->

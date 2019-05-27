@@ -1,8 +1,8 @@
 var express = require('express');
-var app = express()
-  , http = require('http')
-  , server = http.createServer(app)
-  , io = require('socket.io').listen(server);
+var app = express(),
+    http = require('http'),
+    server = http.createServer(app),
+    io = require('socket.io').listen(server);
 
 var server = app.listen(3000);
 app.use(express.static('public'));
@@ -33,6 +33,8 @@ function newConnection(socket) {
         socket.broadcast.emit('mouse', data);
         //io.sockets.emit('mouse', data);
         //would also send the mssg back to client who sent it
+
+        //if socket.draw = true to broadcast.emit 
         console.log(data);
     }
 
