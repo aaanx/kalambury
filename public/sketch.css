@@ -26,6 +26,12 @@ body {
     border: 1px solid black;
     cursor: pointer;
     flex: 2;
+    position: relative;
+}
+
+.canvas {
+    width: 100%;
+    height: 100%;
 }
 
 /*///////// NAVIGATION BOX */
@@ -38,34 +44,83 @@ body {
     margin-top: 3rem;
 }
 
-.well {
+.message-sent {
     font-size: 1.2rem;
-    background-color: #fff;
-    padding: .1rem;
+    background-color: #F2F5F8;
+    padding-left: 1rem;
 }
 
-.online-users {
+.chat {
     display: block;
-}
-
-.enter-msg {
-    font-size: 1.5rem;
-    margin-top: .5rem;
+    width: 100%;
+    height: 10rem;
+    background-color: #fff;
+    padding: .2rem;
+    overflow: auto;
 }
 
 .form-control {
     font-size: 1.3rem;
-    width: 18rem;
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    padding: .1rem;
+    margin-top: 1rem;
 }
 
 #submit_btn {
     font-size: 1.5rem;
 }
 
-.messageArea {
-    display: none;
+.players_settings_box {
+    border: 1px solid #000;
+    background-color: #fff;
+    width: 100%;
+    height: 15rem;
+    margin-top: 2rem;
+    margin-bottom: 5rem;
 }
 
+.players_settings_nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 1px solid #000;
+}
+
+.players_settings_nav > * {
+    flex: 1;
+    text-align: center;
+    padding: .5rem 0;
+    font-size: 1.5rem;
+    color: #000;
+    transition: all .3s;
+}
+
+#players_btn:hover, #players_btn:focus,
+#settings_btn:hover, #settings_btn:focus {
+    text-decoration: none;
+    color: #fff;
+    background-color: #000;
+}
+
+#players, #settings {
+    padding: .5rem;
+    font-size: 1rem;
+}
+
+#username_container {
+    width: 100%;
+    height: 5rem;
+    margin-top: 2rem;
+    padding: .5rem;
+    background-color: #F2F5F8;
+    font-size: 2rem;
+}
+#username {
+    font-size: 2rem;
+}
 
 
 
@@ -143,63 +198,3 @@ input[type="checkbox"] {
 }
 */
 
-/*///////// chat box 
-.chat_box {
-    border: 1px solid #000;
-    width: 100%;
-    height: 35%;
-    position: relative;
-}
-
-.chat_view {
-    display: block;
-    background-color: #fff;
-    width: 100%;
-    height: calc(100% - 3rem);
-    font-size: 2rem;
-}
-
-.chat_msg {
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-}
-
-.chat_msg input[type="text"] {
-    width: 100%;
-    height: 3rem;
-    font-size: 1.5rem;
-}
-*/
-
-
-/*///////// players & settings box 
-.players_settings_box {
-    border: 1px solid #000;
-    background-color: #fff;
-    width: 100%;
-    height: 25%;
-    margin-top: 2rem;
-}
-
-.players_settings_nav {
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    font-size: 2.5rem;
-    border-bottom: 1px solid #000;
-}
-
-.players_settings_nav > * {
-    padding: .5rem 0;
-}
-
-.players {
-    display: none;
-}
-
-.settings {
-    display: none;
-}
-*/

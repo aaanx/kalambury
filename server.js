@@ -15,6 +15,7 @@ connections = [];
 
 console.log('Server running...');
 
+// ?
 app.get('/', function(req, res) {
     res.sendFile(__dirname + '/index.html');
 });

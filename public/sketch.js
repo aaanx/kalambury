@@ -1,13 +1,12 @@
-var socket;
+let socket;
 socket = io.connect('http://localhost:3000');
 socket.on('mouse', newDrawing);
 
 document.addEventListener('DOMContentLoaded', function() {
   function chatSetup() {
-    var messageForm = document.getElementById('messageForm');
-    var message = document.getElementById('message');
-    var chat = document.getElementById('chat');
-    //var submitBtn = document.getElementById('submit_btn');
+    const messageForm = document.getElementById('messageForm');
+    const message = document.getElementById('message');
+    const chat = document.getElementById('chat');
   
     messageForm.addEventListener('submit', function(e) {
       e.preventDefault();
@@ -18,18 +17,47 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     socket.on('new message', function(data) {
-      var messageSent = document.createElement('div');
-      messageSent.className = 'well';
+      const messageSent = document.createElement('div');
+      messageSent.className = 'message-sent';
       messageSent.textContent = data.msg;
       chat.appendChild(messageSent);
     });
   }
+
   chatSetup();
+
+  function displayGameInfo() {
+    const playersBtn = document.getElementById('players_btn');
+    const settingsBtn = document.getElementById('settings_btn');
+    const playersDiv = document.getElementById('players');
+    const settingsDiv = document.getElementById('settings');
+
+    settingsDiv.style.display = 'none';
+    playersDiv.style.display = 'block';
+
+    playersBtn.addEventListener('click', function() {
+      playersDiv.style.display = 'block';
+      settingsDiv.style.display = 'none';
+    });
+
+    settingsBtn.addEventListener('click', function() {
+      settingsDiv.style.display = 'block';
+      playersDiv.style.display = 'none';
+    });
+  }
+
+  displayGameInfo();
+
 });
 
 function setup() {
-  var canvas = createCanvas(500, 500);
+  let width = document.getElementById('play_box').clientWidth;
+  let height = document.getElementById('play_box').clientHeight;
+  
+  const canvas = createCanvas(width, height);
   canvas.parent('play_box');
+  canvas.class('canvas');
+  canvas.position(0, 0);
   background(51);
 }
 
@@ -44,7 +72,7 @@ function newDrawing(data) {
 function mouseDragged() {
   console.log('Sending: ' + mouseX + ',' + mouseY);
 
-  var data = {
+  const data = {
     x: mouseX,
     y: mouseY
   }
@@ -59,3 +87,4 @@ function mouseDragged() {
 function draw() {
   //Nothing
 }
+
