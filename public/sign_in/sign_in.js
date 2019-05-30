@@ -26,8 +26,9 @@ function toggleSignIn() {
       firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
         var errorCode = error.code;
         var errorMessage = error.message;
-        // Jak zrobić by przechodziło przez każdy error?
-        // Error -> poprawka -> inny error -> poprawka -> inny error -> poprawka -> ok, loguje
+        location.reload(); 
+        // how to check every error without page reload
+        // error -> correct -> diff error -> correct -> diff error -> correct -> ok, log-in
 
         if (errorCode === 'auth/invalid-email') {
             document.querySelector('.log_info').textContent = 'Wrong email format';
@@ -50,9 +51,23 @@ function toggleSignIn() {
             return;
         } 
 
+        location.reload(); 
       });
-      document.getElementById('log_btn').disabled = false;
-      document.getElementById('log_btn').addEventListener('click', enterTheGame, false);
+
+      firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+          let userEmail = firebase.auth().currentUser.email;
+          localStorage.setItem('user', userEmail);
+          console.log(userEmail);
+          document.getElementById('log_btn').disabled = false;
+          window.location = 'http://localhost:3000/';
+        } else {
+          document.getElementById('log_btn').disabled = true;
+          console.log('try again');
+          return false;
+        }
+      });
+      //document.getElementById('log_btn').addEventListener('click', enterTheGame, false);
     }
 }
 
@@ -78,6 +93,6 @@ window.onload = function() {
     initApp();
 };
 
-function enterTheGame() {
-    location.replace("http://localhost:3000/");
-}
+// function enterTheGame() {
+//     location.replace("http://localhost:3000/");
+// }

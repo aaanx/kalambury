@@ -6,7 +6,8 @@
     <title>Kalambury Gra</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="sketch.css">
-    <script src="libraries/p5.min.js"></script>
+    <script src="libraries/p5.js"></script>
+    <script src="libraries/p5.dom.js"></script>
     <!-- socket.io config start -->
     <script src="/socket.io/socket.io.js"></script>
     <!-- socket.io config end -->
@@ -17,31 +18,43 @@
         <div id="play_box"></div>
 
         <div class="nav_box container">
+            <div id="username_container">
+                <p>My user name: <span id="username">#</span></p>
+            </div>
+
             <div class="row">
-                <div class="col-md-8">
+                <div class="col-md-12">
                     <div class="chat" id="chat"></div>                    
                     <form id="messageForm">
                         <div class="form-group">
-                            <label class="enter-msg">Enter Message</label>
-                            <textarea class="form-control" id="message"></textarea>
-                            <br />
-                            <input type="submit" class="btn btn-primary" id="submit_btn" value="Send Message" />
+                            <textarea class="form-control" id="message" placeholder="Enter Message" rows="1" cols="1"></textarea><br />
+                            <input type="submit" class="btn btn-dark" id="submit_btn" value="send" />
                         </div>
                     </form>                
                 </div>
             </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="players_settings_box">
+                        <div class="players_settings_nav">
+                            <a href="#" id="players_btn">obecni</a>
+                            <a href="#" id="settings_btn">ustawienia</a>
+                        </div>
+                        <div id="players">
+                            <h3>Lista graczy</h3>
+                            <ul class="list-group" id="users"></ul>
+                        </div>
+                        <div id="settings">
+                            <h3>Ustawienia</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
         </div>
 
-        <!--
-        <div class="players_settings_box">
-            <div class="players_settings_nav">
-                <span class="obecni">obecni</span>
-                <span class="ustawienia">ustawienia</span>
-            </div>
-            <div class="players">Lista graczy</div>
-            <div class="settings">Ustawienia</div>
-        </div>
-        -->
     </main>
   
     <!-- firebase config start -->

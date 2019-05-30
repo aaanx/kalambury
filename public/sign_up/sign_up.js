@@ -48,7 +48,9 @@ function initApp() {
       if (user) {
         // User is signed in.
         var displayName = user.displayName;
+        console.log(displayName);
         var email = user.email;
+        console.log(email);
         var emailVerified = user.emailVerified;
         var photoURL = user.photoURL;
         var isAnonymous = user.isAnonymous;
@@ -58,7 +60,6 @@ function initApp() {
         // User is signed out.
       }
     });
-    // [END authstatelistener]
     document.getElementById('register_btn').addEventListener('click', handleSignUp, false);
 }
 
