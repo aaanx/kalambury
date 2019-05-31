@@ -9,8 +9,9 @@
 </head>
 <body>
     <header>
-        <nav>
+        <nav class="top_nav">
             <h1>Kalambury</h1>
+            <a href="#"><button id="wyloguj_btn" onclick="logout()">Wyloguj <span id="username_display">#</span></button></a>
         </nav>
         <div class="nav_bar">
             <span>kalambury online - zagraj</span>
@@ -24,7 +25,7 @@
             <div class="zaloguj_form" style="display: none;">
                 <label for="email">Email</label><input id="email" type="email" name="email" placeholder="Twój email" required> <br>
                 <label for="haslo">Hasło</label><input id="password" type="password" name="haslo" placeholder="Twoje hasło" required> <br>
-                <button disabled id="log_btn" type="submit">Zaloguj</button>
+                <button id="log_btn" type="submit" onclick="login()">Zaloguj</button>
                 <p class="log_info"></p>
             </div>
             <p>gra typu jeden rysuje, reszta zgaduje; im szybciej odgadnięte hasło, tym więcej punktów za odgadnięcie i rysowanie; gra do ustalonej liczby punktów</p>

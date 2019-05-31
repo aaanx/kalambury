@@ -14,24 +14,24 @@
     padding: 1rem;
     cursor: pointer;
 }
-.register_form {
+.r_form {
     font-size: 2.5rem;
     text-transform: lowercase;
     background-color: #f6f6ff;
     margin: 1rem;
     padding-bottom: 3rem;
 }
-.register_form > * {
+.r_form > * {
     margin-left: 1.5rem;
 }
-.register_form input {
+.r_form input {
     width: 40rem;
 }
 .info_form {
     display: inline-block;
     font-size: 1rem;
 }
-#register_btn {
+#r_btn {
     font-size: 1.5rem;
     padding: .5rem 2rem;
     margin-top: 2rem;
@@ -43,7 +43,7 @@
     cursor: pointer;
 }
 
-.register_info {
+.r_info {
     display: inline-block;
     margin-left: 2rem;
     text-transform: none;

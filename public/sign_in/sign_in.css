@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Quicksand:400,500&subset=latin-ext');
 
-/*///////// INITIAL SETUP */
+/*/ setup */
 * {
     margin: 0;
     padding: 0;
@@ -13,11 +13,14 @@ body {
     width: 65vw;
     height: 75vh;
 }
-/*///////// HEADER SECTION */
-nav {
+/*/ header */
+.top_nav {
     margin: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
-nav h1 {
+.top_nav h1 {
     text-transform: uppercase;
     font-size: 5rem;
     color: #000080;
@@ -33,7 +36,7 @@ nav h1 {
     padding: 1rem 0;
     display: flex;
 }
-/*///////// MAIN SECTION */
+/*/ main */
 .main_page {
     background-color: #f6f6ff;
     width: 70%;
@@ -46,7 +49,7 @@ nav h1 {
 .main_content h2 {
     padding: 2rem 0;
 }
-/*///////// zaloguj i zarejestruj button */
+/*/ buttons */
 #zaloguj_btn,
 #zarejestruj_btn {
     font-size: 1.8rem;
@@ -58,7 +61,19 @@ nav h1 {
     font-weight: 500;
     cursor: pointer;
 }
-#zaloguj_btn {
+
+#wyloguj_btn {
+    display: none;
+    font-size: 1.8rem;
+    padding: 1rem 3rem;
+    border: 2px solid #000080;
+    outline: none;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+#zaloguj_btn,
+#wyloguj_btn {
     background-color: #000080;
     color: #fff;
 }
@@ -66,14 +81,15 @@ nav h1 {
     background-color: transparent;
 }
 
-/*///////// formularz logowania */
+/*/ log form */
 .zaloguj_form {
     margin-bottom: 2rem;
     font-size: 2.5rem;
 }
 
 input[type="email"],
-input[type="password"] {
+input[type="password"],
+input[type="text"] {
     width: 25rem;
     height: 2.5rem;
     font-size: 1.5rem;
@@ -119,7 +135,7 @@ input::placeholder {
     margin-left: 1rem;
 }
 
-/*///////// opis i zasady gry button */
+/*/ desciption and game rules button */
 .main_content p {
     font-size: 1.5rem;
     text-align: justify;

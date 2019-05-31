@@ -19,23 +19,17 @@
         </div>
     </header>
     <main>
-        <div class="register_form">
-            <!--
-            <label for="reg_login">Login</label> <br>
-            <input type="text" name="reg_login" required> <br>
-            <span class="info_form">Tylko litery (bez ogonków) i cyfry</span> <br>
-            -->
-            <label for="register_email">Email</label> <br>
-            <input id="register_email" type="email" name="register_email" required> <br>
-            <label for="register_haslo">Hasło <span class="info_form">6+</span></label> <br>
-            <input id="register_haslo" type="password" name="register_haslo" required> <br>
-            <label for="register_haslo2">Powtórz hasło</label> <br>
-            <input id="register_haslo2" type="password" name="register_haslo2" required> <br>
-            <!--
-            <span class="info_form">email nieobowiązkowy, tylko do odzyskiwania hasła</span> <br>
-            -->
-            <button id="register_btn" type="submit">zarejestruj się</button>
-            <p class="register_info"></p>
+        <div class="r_form">
+            <label for="r_user">Username</label> <br>
+            <input type="text" name="r_user" required> <br>
+            <label for="r_email">Email</label> <br>
+            <input id="r_email" type="email" name="r_email" required> <br>
+            <label for="r_password">Hasło <span class="info_form">6+</span></label> <br>
+            <input id="r_password" type="password" name="r_password" required> <br>
+            <label for="r_password2">Powtórz hasło</label> <br>
+            <input id="r_password2" type="password" name="r_password2" required> <br>
+            <button id="r_btn" type="submit" onclick="signup()">zarejestruj się</button>
+            <p class="r_info"></p>
         </div>
     </main>
 
