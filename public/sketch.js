@@ -2,6 +2,7 @@ let socket;
 socket = io.connect('http://localhost:3000');
 socket.on('mouse', newDrawing);
 
+//// chat
 document.addEventListener('DOMContentLoaded', function() {
   function chatSetup() {
     const messageForm = document.getElementById('messageForm');
@@ -50,6 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 });
 
+//// canvas set up
 function setup() {
   let width = document.getElementById('play_box').clientWidth;
   let height = document.getElementById('play_box').clientHeight;
@@ -87,4 +89,17 @@ function mouseDragged() {
 function draw() {
   //Nothing
 }
+
+//// words from firebase database
+const database = firebase.database().ref().child('words');
+let randomNum;
+
+database.once('value').then(function(word) {
+  const wordPlaceholder = document.getElementById('word');
+  const words = word.val();
+  const wordsLength = words.length;
+  randomNum = Math.floor(Math.random() * wordsLength);
+
+  wordPlaceholder.innerHTML = words[randomNum];
+});
 
