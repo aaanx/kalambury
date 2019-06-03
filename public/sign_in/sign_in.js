@@ -1,10 +1,24 @@
-// display log form
+// // socket.io
+// let socket;
+// socket = io.connect('http://localhost:8080');
+
+// document.addEventListener('DOMContentLoaded', function() {
+
+//     socket.on('user', function(data) {
+
+//     });
+    
+// });
+
+
+// display login form
 const zalogujBtn = document.getElementById('zaloguj_btn');
 zalogujBtn.addEventListener('click', function() {
   const logForm = document.querySelector('.zaloguj_form');
   logForm.style.display === 'none' ? logForm.style.display = 'block' : logForm.style.display = 'none';
 });
 
+// login status
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     // user is logged in
@@ -23,6 +37,7 @@ firebase.auth().onAuthStateChanged(function(user) {
   }
 });
 
+// login
 function login() {
   const email = document.getElementById('email').value;
   const password = document.getElementById('password').value;
@@ -65,11 +80,26 @@ function login() {
   });
 }
 
+//// log-out
 function logout() {
   firebase.auth().signOut().then(function() {
 
   }).catch(function(error) {
-    var errorMessage = error.message;
+    let errorMessage = error.message;
     console.log(errorMessage);
   });
+}
+
+//// reset password
+function resetPassword() {
+  const auth = firebase.auth();
+  const email = document.getElementById('email').value;
+
+auth.sendPasswordResetEmail(email).then(function() {
+  document.querySelector('.log_info').textContent = 'Email reset link sent';
+}).catch(function(error) {
+  let errorMessage = error.message;
+  console.log(errorMessage);
+});
+
 }

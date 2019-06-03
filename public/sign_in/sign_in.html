@@ -5,6 +5,9 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Kalambury Gra</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <!-- socket.io config start 
+    <script src="/socket.io/socket.io.js"></script>
+    socket.io config end -->
     <link rel='stylesheet' type='text/css' media='screen' href='sign_in.css'>
 </head>
 <body>
@@ -26,6 +29,7 @@
                 <label for="email">Email</label><input id="email" type="email" name="email" placeholder="Twój email" required> <br>
                 <label for="haslo">Hasło</label><input id="password" type="password" name="haslo" placeholder="Twoje hasło" required> <br>
                 <button id="log_btn" type="submit" onclick="login()">Zaloguj</button>
+                <button id="reset_btn" onclick="resetPassword()">Resetuj hasło</button>
                 <p class="log_info"></p>
             </div>
             <p>gra typu jeden rysuje, reszta zgaduje; im szybciej odgadnięte hasło, tym więcej punktów za odgadnięcie i rysowanie; gra do ustalonej liczby punktów</p>
