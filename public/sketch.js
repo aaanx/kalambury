@@ -1,15 +1,26 @@
+//// make connection
 let socket;
 socket = io.connect('http://localhost:3000');
 socket.on('mouse', newDrawing);
 
-//// chat
 document.addEventListener('DOMContentLoaded', function() {
+  
+  //// chat
   function chatSetup() {
-    const messageForm = document.getElementById('messageForm');
+    const chatForm = document.getElementById('chat_form');
     const message = document.getElementById('message');
     const chat = document.getElementById('chat');
-  
-    messageForm.addEventListener('submit', function(e) {
+    const userForm = document.getElementById('user_form');
+    const userFormContainer = document.getElementById('user_container');
+    const chatContainer = document.getElementById('chat_container');
+    const username = document.getElementById('username');
+    const canvas = document.getElementById('canvas_container');
+    const wordContainer = document.getElementById('password_container');
+    const settingsContainer = document.getElementById('gameinfo_container');
+    const controlsContainer = document.getElementById('controls_container');
+    const navBox = document.getElementById('sidebar');
+
+    chatForm.addEventListener('submit', function(e) {
       e.preventDefault();
       console.log('Submitted');
       socket.emit('send message', message.value);
@@ -20,13 +31,41 @@ document.addEventListener('DOMContentLoaded', function() {
     socket.on('new message', function(data) {
       const messageSent = document.createElement('div');
       messageSent.className = 'message-sent';
-      messageSent.textContent = data.msg;
+      messageSent.innerHTML = '<strong id="chat_user">'+data.user+': </strong>'+data.msg;
       chat.appendChild(messageSent);
+    });
+
+    userForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      socket.emit('new user', username.value, function(data) {
+        if (data) {
+          navBox.style.display = 'block';
+          userFormContainer.style.display = 'none';
+          chatContainer.style.display = 'block';
+          canvas.style.display = 'block';
+          wordContainer.style.display = 'block';
+          settingsContainer.style.display = 'block';
+          controlsContainer.style.display = 'block';
+
+          setup();
+        }
+      });
+      username.value = ' ';
+      return false;
+    });
+
+    socket.on('get users', function(data) {
+      let html = '';
+      for (let i = 0; i < data.length; i++) {
+        html += '<li class="list-group-item">'+data[i]+'</li>';
+      }
+      users.innerHTML = html;
     });
   }
 
   chatSetup();
 
+  //// game info
   function displayGameInfo() {
     const playersBtn = document.getElementById('players_btn');
     const settingsBtn = document.getElementById('settings_btn');
@@ -53,14 +92,24 @@ document.addEventListener('DOMContentLoaded', function() {
 
 //// canvas set up
 function setup() {
-  let width = document.getElementById('play_box').clientWidth;
-  let height = document.getElementById('play_box').clientHeight;
+  let width = document.getElementById('canvas_container').clientWidth;
+  let height = document.getElementById('canvas_container').clientHeight;
   
   const canvas = createCanvas(width, height);
-  canvas.parent('play_box');
+  canvas.parent('canvas_container');
   canvas.class('canvas');
   canvas.position(0, 0);
   background(51);
+
+  const resetBtn = createButton('reset');
+  resetBtn.mousePressed(resetSketch);
+  resetBtn.class('reset_btn');
+  resetBtn.parent('controls_container');
+
+}
+
+function resetSketch() {
+  background(51);  
 }
 
 function newDrawing(data) {
@@ -90,12 +139,12 @@ function draw() {
   //Nothing
 }
 
-//// words from firebase database
+//// password from firebase database
 const database = firebase.database().ref().child('words');
 let randomNum;
 
 database.once('value').then(function(word) {
-  const wordPlaceholder = document.getElementById('word');
+  const wordPlaceholder = document.getElementById('password');
   const words = word.val();
   const wordsLength = words.length;
   randomNum = Math.floor(Math.random() * wordsLength);

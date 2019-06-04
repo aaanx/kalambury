@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kalambury Gra</title>
-    <!-- firebase config start -->
     <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script>
@@ -20,70 +19,63 @@
         };
         firebase.initializeApp(firebaseConfig);
     </script>
-    <!-- firebase config end -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="sketch.css">
     <script src="libraries/p5.js"></script>
     <script src="libraries/p5.dom.js"></script>
-    <!-- socket.io config start -->
     <script src="/socket.io/socket.io.js"></script>
-    <!-- socket.io config end -->
     <script src="sketch.js"></script>
   </head>
   <body>
-    <main class="game_box">
-        <div id="play_box"></div>
 
-        <div class="nav_box container">
-            <div id="username_container">
-                <p>Nazwa użytkownika: <span id="username">#</span></p>
+    <div id="user_container">  
+        <form id="user_form">
+            <h3> Enter your username </h3>
+            <input id="username" /><br />
+            <input type="submit" id="user_submit_btn" value="save" />
+        </form>   
+    </div>
+    
+    <main class="wrapper">
+
+        <div id="canvas_container"></div>
+
+        <div id="sidebar">
+            <div id="password_container">
+                <p>Game password: <span id="password"></span></p>
             </div>
 
-            <div id="word_container">
-                <p>Hasło: <span id="word"></span></p>
+            <div id="controls_container"></div> 
+
+            <div id="chat_container">
+                <div class="chat" id="chat"></div>
+                <form id="chat_form">
+                    <textarea id="message" placeholder="Enter Message" rows="1" cols="1"></textarea><br />
+                    <input type="submit" id="chat_submit_btn" value="send" />
+                </form>  
             </div>
 
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="chat" id="chat"></div>                    
-                    <form id="messageForm">
-                        <div class="form-group">
-                            <textarea class="form-control" id="message" placeholder="Enter Message" rows="1" cols="1"></textarea><br />
-                            <input type="submit" class="btn btn-dark" id="submit_btn" value="send" />
-                        </div>
-                    </form>                
+            <div id="gameinfo_container">
+                <div class="gameinfo_nav">
+                    <button id="players_btn">players</button>
+                    <button id="settings_btn">settings</button>
+                </div>
+
+                <div id="players">
+                    <ul id="users"></ul>
+                </div>
+
+                <div id="settings">
+                    <h3>Settings</h3>
                 </div>
             </div>
-
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="players_settings_box">
-                        <div class="players_settings_nav">
-                            <a href="#" id="players_btn">obecni</a>
-                            <a href="#" id="settings_btn">ustawienia</a>
-                        </div>
-                        <div id="players">
-                            <h3>Lista graczy</h3>
-                            <ul class="list-group" id="users"></ul>
-                        </div>
-                        <div id="settings">
-                            <h3>Ustawienia</h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
 
         </div>
 
     </main>
   
-    <!-- Bootstrap config start -->
-    <!-- Optional JavaScript --> <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <!-- Bootstrap config end -->
-
   </body>
 </html>
