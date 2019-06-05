@@ -2,7 +2,6 @@
 let socket;
 socket = io.connect('http://localhost:3000');
 socket.on('mouse', newDrawing);
-
 document.addEventListener('DOMContentLoaded', function() {
   
   //// chat
@@ -57,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
     socket.on('get users', function(data) {
       let html = '';
       for (let i = 0; i < data.length; i++) {
-        html += '<li class="list-group-item">'+data[i]+'</li>';
+        html += '<li class="users_item">'+data[i]+'</li>';
       }
       users.innerHTML = html;
     });

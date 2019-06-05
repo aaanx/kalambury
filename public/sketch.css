@@ -13,6 +13,7 @@ body {
     margin: 0 auto;
     width: 80vw;
     height: 75vh;
+    position: relative;
 }
 
 .wrapper {
@@ -24,13 +25,44 @@ body {
 /*// user form */
 
 #user_container {
-    width: 50%;
+    width: 40rem;
     height: auto;
     margin-top: 2rem;
     margin-bottom: 2rem;
     padding: .5rem;
     background-color: #F2F5F8;
     font-size: 2rem;
+    position: absolute;
+    top: 0;
+    left: calc(50% - 20rem);
+}
+
+#user_form {
+    margin-left: 2rem;
+}
+
+#user_label {
+    margin-top: 1rem;
+}
+
+#username {
+    border: none;
+    outline: none;
+    margin: .5rem 0 2rem 0;
+    background-color: transparent;
+    border-bottom: 1px solid #000;
+    font-size: 2rem;
+}
+
+#user_submit_btn {
+    border: none;
+    outline: none;
+    background-color: #000;
+    color: #fff;
+    border-radius: .5rem;
+    padding: .5rem 1.5rem;    
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
 }
 
 /*// canvas container */
@@ -54,47 +86,58 @@ body {
     display: none;
 }
 
+#sidebar > * {
+    margin: 0 1.5rem;
+}
+
 /*// game passsword container */
 
 #password_container {
     display: none;
-    width: 100%;
-    height: 5rem;
     margin-top: 2rem;
     padding: .5rem;
     background-color: #F2F5F8;
-    font-size: 2rem;
+    border-radius: .4rem;
 }
 
-#username,
+#password_label {
+    font-size: 1.5rem;
+    margin: 0;
+    margin-left: 1rem;
+}
+
 #password {
     font-size: 2rem;
+    font-weight: 700;
+    padding-left: 1rem;
 }
 
 /*// game controls container */
 
 #controls_container {
     display: none;
-    margin-top: 1rem;
+    margin-top: 2rem;
     background: #F2F5F8;
+    padding: .5rem;
+    border-radius: .4rem;
 }
 
 .reset_btn {
-    margin-right: .5rem;
-    padding: .5rem;
+    margin-left: 1rem;
+    padding: .5rem 1rem;
     border: none;
     outline: none;
     font-size: 1.3rem;
     background-color: black;
     color: white;
-    border-radius: .2rem;
+    border-radius: .5rem;
     cursor: pointer;
 }
 
 /*// chat container */
 
 #chat_container {
-    margin-top: 3rem;
+    margin-top: 2rem;
     display: none;
 }
 
@@ -104,13 +147,13 @@ body {
     padding-left: 1rem;
 }
 
-.chat {
+#chat {
     display: block;
-    width: 100%;
     height: 10rem;
     background-color: #fff;
     padding: .2rem;
     overflow: auto;
+    border-radius: .4rem;
 }
 
 #chat_user {
@@ -118,16 +161,25 @@ body {
 }
 
 #message {
-    font-size: 1rem;
+    font-size: 1.5rem;
     width: 100%;
-    height: auto;
     box-sizing: border-box;
-    padding: .1rem;
+    padding: .5rem;
+    padding-left: 1rem;
     margin-top: 1rem;
+    border-radius: .4rem;
+    border: none;
+    outline: none;
 }
 
-#chat_submit_btn,
-#user_submit_btn {
+#chat_submit_btn {
+    margin-top: 1rem;
+    border: none;
+    outline: none;
+    background-color: #000;
+    color: #fff;
+    border-radius: .5rem;
+    padding: .5rem 1.5rem;    
     font-size: 1.5rem;
 }
 
@@ -135,12 +187,12 @@ body {
 
 #gameinfo_container {
     display: none;
-    border: 1px solid #000;
     background-color: #fff;
-    width: 100%;
     height: 15rem;
     margin-top: 2rem;
     margin-bottom: 5rem;
+    border-radius: .4rem;
+    overflow: auto;
 }
 
 .gameinfo_nav {
@@ -160,8 +212,16 @@ body {
     transition: all .3s;
 }
 
-#players_btn:hover, #players_btn:focus,
-#settings_btn:hover, #settings_btn:focus {
+#players_btn,
+#settings_btn {
+    border: none;
+    outline: none; 
+    overflow: hidden;
+    background-color: #fff;
+}
+
+#players_btn:hover, #players_btn:active,
+#settings_btn:hover, #settings_btn:active {
     text-decoration: none;
     color: #fff;
     background-color: #000;
@@ -172,6 +232,9 @@ body {
     font-size: 1rem;
 }
 
-.list-group-item {
-    font-size: 1rem;
+.users_item {
+    font-size: 1.5rem;
+    padding: .5rem 0;
+    padding-left: 1rem;
+    background-color: #F2F5F8;
 }

@@ -30,7 +30,7 @@
 
     <div id="user_container">  
         <form id="user_form">
-            <h3> Enter your username </h3>
+            <h3 id="user_label"> Enter your username </h3>
             <input id="username" /><br />
             <input type="submit" id="user_submit_btn" value="save" />
         </form>   
@@ -42,7 +42,7 @@
 
         <div id="sidebar">
             <div id="password_container">
-                <p>Game password: <span id="password"></span></p>
+                <p id="password_label">Game password: <span id="password"></span></p>
             </div>
 
             <div id="controls_container"></div> 
@@ -50,7 +50,7 @@
             <div id="chat_container">
                 <div class="chat" id="chat"></div>
                 <form id="chat_form">
-                    <textarea id="message" placeholder="Enter Message" rows="1" cols="1"></textarea><br />
+                    <textarea id="message" rows="1" cols="1"></textarea><br />
                     <input type="submit" id="chat_submit_btn" value="send" />
                 </form>  
             </div>
