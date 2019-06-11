@@ -8,7 +8,7 @@ Kalambury requires:
  - socket.io
  - [p5.js](http://p5js.org/)
 
-Install the dependencies and devDependencies and start the server.
+Install the dependencies and devDependencies and start the server on [localhost:3000](http://localhost:3000/).
 
 ```sh
 $ cd kalambury
