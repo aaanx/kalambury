@@ -19,7 +19,7 @@ $ node server.js
 ```
 ### Todos
 
- - Build sign up and sign in process security
- - Improve live-draw so just one client can draw at time
- - Add live-chat functionality
- - Implementat game rules and points scoring
+ - [x] Build sign up and sign in process security
+ - [ ] Improve live-draw so just one client can draw at time
+ - [x] Add live-chat functionality
+ - [ ] Implement game rules and points scoring
