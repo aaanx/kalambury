@@ -1,7 +1,6 @@
 //// make connection
 let socket;
 socket = io.connect('http://localhost:3000');
-socket.on('mouse', newDrawing);
 document.addEventListener('DOMContentLoaded', function() {
   
   //// chat
@@ -64,6 +63,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
   chatSetup();
 
+  // function gameStart() {
+  //   const startBtn = document.getElementById('start_btn');
+  //   startBtn.addEventListener('click', function() {
+      
+  //   })
+  // }
+
   //// game info
   function displayGameInfo() {
     const playersBtn = document.getElementById('players_btn');
@@ -107,10 +113,13 @@ function setup() {
 
 }
 
+//// reset canvas
 function resetSketch() {
   background(51);  
 }
 
+socket.on('mouse', newDrawing);
+//// new drawing
 function newDrawing(data) {
   console.log('Got: ' + data.x + ' ' +data.y);
 
@@ -120,7 +129,7 @@ function newDrawing(data) {
 }
 
 function mouseDragged() {
-  console.log('Sending: ' + mouseX + ',' + mouseY);
+  console.log('Sending: ' + mouseX + ', ' + mouseY);
 
   const data = {
     x: mouseX,
@@ -128,17 +137,23 @@ function mouseDragged() {
   }
 
   socket.emit('mouse', data);
-  
+
   noStroke();
   fill(255);
   ellipse(mouseX, mouseY, 20, 20);
 }
 
+socket.on('connections', function(connections) {
+  console.log(connections);
+//   for(let i = 0; i < connections.length; i++) {
+// }
+})
+
 function draw() {
   //Nothing
 }
 
-//// password from firebase database
+//// game password from firebase database
 const database = firebase.database().ref().child('words');
 let randomNum;
 
@@ -150,4 +165,3 @@ database.once('value').then(function(word) {
 
   wordPlaceholder.innerHTML = words[randomNum];
 });
-

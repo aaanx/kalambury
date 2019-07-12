@@ -15,27 +15,50 @@ connections = [];
 
 console.log('Server running...');
 
-// ?
 app.get('/', function(req, res) {
     res.sendFile(__dirname + '/index.html');
 });
 
 io.sockets.on('connection', newConnection);
 
+// connections
 function newConnection(socket) {
-    // Connect
-    connections.push(socket);
-    console.log('Connected: %s sockets connected', connections.length, socket.id);
+    // save connections in an array
+    connections.push({id: socket.id, isDrawing: false});
+    //console.log('Connected: %s sockets connected', connections.length, socket.id);
+    console.log(connections);
+
+
+    if (connections.length < 2) {
+        console.log("Waiting for a second player...");
+    } else {
+        pickUserToDraw();
+    }
     
-    // Mouse data - sketch
+    // pick random user who will draw first
+    function pickUserToDraw() {
+        for (let i = 0; i < connections.length; i++) {
+            connections[i].isDrawing = false;
+        }
+        let randomIndex = Math.floor(Math.random() * connections.length);
+        console.log("Index to draw: " + randomIndex);
+        connections[randomIndex].isDrawing = true;
+        console.log(connections);
+
+        socket.emit('connections', connections);
+    }
+
+    // listen to mouse event
     socket.on('mouse', mouseMessage);
     
+    // mouse event occurs
     function mouseMessage(data) {
-        socket.broadcast.emit('mouse', data);
-        //io.sockets.emit('mouse', data);
-        //would also send the mssg back to client who sent it
-
-        //if socket.draw = true to broadcast.emit 
+        // for(let i = 0; i < connections.length; i++) {
+        //     if (connections[i].isDrawing === true) {
+        //         // sending data to all clients except sender
+                socket.broadcast.emit('mouse', data);
+            // }
+        // }
         console.log(data);
     }
 
