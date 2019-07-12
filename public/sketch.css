@@ -90,8 +90,21 @@ body {
     margin: 0 1.5rem;
 }
 
-/*// game passsword container */
+/*// game start container */
+#start_btn {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: .5rem 1rem;
+    border: none;
+    outline: none;
+    font-size: 1.3rem;
+    background-color: black;
+    color: white;
+    border-radius: .5rem;
+    cursor: pointer;
+}
 
+/*// game passsword container */
 #password_container {
     display: none;
     margin-top: 2rem;
